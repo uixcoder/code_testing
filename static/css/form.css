@@ -1,0 +1,145 @@
+/* Form controls */
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Auto-resize textareas */
+.auto-resize {
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    transition: height 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 38px; /* Height of one line plus padding */
+}
+
+.auto-resize:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Specific textarea styling */
+#taskDescription, #codeInput {
+    min-height: 38px;
+    resize: none;
+    overflow: hidden;
+    transition: height 0.2s ease;
+}
+
+#codeInput {
+    font-family: monospace;
+    tab-size: 4;
+}
+
+/* Different language backgrounds */
+#codeInput[data-language="c"] {
+    background-color: #fcfcfc;
+}
+
+#codeInput[data-language="cpp"] {
+    background-color: #f9fdf9;
+}
+
+#codeInput[data-language="python"] {
+    background-color: #f9f9fd;
+}
+
+#codeInput[data-language="java"] {
+    background-color: #fdf9f9;
+}
+
+/* Field labels */
+.field-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Range inputs */
+.form-range {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    appearance: none;
+    background: #eee;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.form-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.form-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/* Test input/output fields */
+.test-input, .test-output {
+    width: 100%;
+    min-height: 60px;
+    font-family: monospace;
+}
+
+/* Compilation status */
+.compilation-status {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.compilation-success {
+    display: block;
+    color: white;
+    background-color: #4CAF50;
+}
+
+.compilation-error {
+    display: block;
+    color: white;
+    background-color: #f44336;
+}
+
+.compilation-error-details {
+    margin-top: 5px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-weight: normal;
+}

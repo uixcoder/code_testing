@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Testing Platform</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Code Testing Platform</h1>
+        
+        <div class="form-section">
+            <h2>Task Information</h2>
+            <label class="field-label" for="taskName">Task Name:</label>
+            <textarea id="taskName" class="auto-resize" placeholder="Enter task name">Task</textarea>
+
+            <label class="field-label" for="taskDescription">Task Description:</label>
+            <textarea id="taskDescription" class="auto-resize" placeholder="Enter task description"></textarea>
+
+            <label class="field-label" for="maxGrade">Maximum Grade:</label>
+            <input type="number" id="maxGrade" min="1" max="100" value="10" class="form-control">
+        </div>
+        
+        <div class="form-section">
+            <h2>Solution</h2>
+            <div class="language-selector">
+                <label class="field-label" for="programmingLanguage">Programming Language:</label>
+                <select id="programmingLanguage" class="form-control">
+                    <option value="c" selected>C</option>
+                    <option value="cpp">C++</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+            
+            <label class="field-label" for="codeInput">Source Code:</label>
+            <textarea id="codeInput" class="auto-resize" data-language="c" spellcheck="false"></textarea>
+            <div id="compilationStatus" class="compilation-status"></div>
+        </div>
+        
+        <div class="form-section">
+            <h2>Tests</h2>
+            
+            <!-- Unified Controls Panel -->
+            <div class="unified-controls-panel">
+                <!-- Auto-recalculate toggle in its own control group first -->
+                <div class="control-group">
+                    <div class="auto-recalculate-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="autoRecalculateToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="setting-label">Auto-recalculate test weights</span>
+                    </div>
+                </div>
+                
+                <!-- Test Generation Input Controls -->
+                <div class="control-group">
+                    <div class="input-group">
+                        <label for="testCount">Number of tests to generate:</label>
+                        <input type="number" id="testCount" value="{{ default_test_count }}" min="1" max="{{ max_test_count }}">
+                    </div>
+                </div>
+                
+                <!-- Generate Tests Button Row -->
+                <div class="control-group">
+                    <button class="btn primary-btn" id="generateTestsBtn">GENERATE TESTS</button>
+                    <span id="generationStatus" class="generation-status"></span>
+                </div>
+                
+                <!-- Test Execution Controls -->
+                <div class="control-group">
+                    <button class="btn action-btn" id="submitButton">RUN TESTS</button>
+                    <span id="testingStatus" class="testing-status"></span>
+                    <span id="gradeDisplay" class="grade-display"></span>
+                </div>
+            </div>
+        
+            <!-- Test tabs navigation -->
+            <div class="test-tabs" id="testTabs">
+                <div class="test-tab add-test-tab" id="addTestTab">+</div>
+            </div>
+            
+            <!-- Test contents container -->
+            <div id="testsContainer">
+                <!-- Test content will be added here -->
+            </div>
+        </div>
+   
+        <div class="form-section hidden-section">
+            <h2>Result</h2>
+            <pre id="resultOutput"></pre>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="{{ url_for('static', filename='js/autoResize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tests.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
