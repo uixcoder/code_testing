@@ -1,0 +1,396 @@
+/* Tab System Styles */
+.test-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.test-tab {
+    width: 75px; /* Increased from 60px to 75px */
+    height: 40px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.test-tab span:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.test-tab.active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Make the add-test-tab the same size as other tabs */
+.test-tab.add-test-tab {
+    order: 999; 
+    width: 75px;
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
+}
+
+/* Test success/failure styling */
+.test-tab.test-success {
+    background-color: #e6ffe6 !important; /* light green */
+    border-color: #4CAF50 !important;
+    color: #1e6929 !important;
+    font-weight: bold;
+}
+
+.test-tab.test-failed {
+    background-color: #ffebee !important; /* light red */
+    border-color: #f44336 !important;
+    color: #c62828 !important;
+    font-weight: bold;
+}
+
+/* Status icon styles */
+.status-icon {
+    position: absolute;
+    bottom: 2px;
+    left: 4px; 
+    font-size: 14px;
+}
+
+.test-tab .status-icon {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.test-tab.test-success .status-icon {
+    color: #4CAF50;
+}
+
+.test-tab.test-failed .status-icon {
+    color: #f44336;
+}
+
+/* Tab content styles */
+.test-tab-content {
+    display: none;
+    position: relative; /* Important for absolute positioning of close button */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    padding-top: 15px; /* Extra padding so close button doesn't overlap content */
+}
+
+.test-tab-content.active {
+    display: block;
+}
+
+/* Add test tab button */
+.add-test-tab {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f1f1f1;
+    padding: 2px 12px;
+    cursor: pointer;
+}
+
+.add-test-tab:hover {
+    background-color: #e0e0e0;
+}
+
+/* Close button styling */
+.delete-test-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.delete-test-btn:hover {
+    color: #f44336;
+    background-color: #ffebee;
+}
+
+/* Test error message */
+.test-error {
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #ffebee;
+    color: #c62828;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+/* Weight range slider styling */
+.test-weight-container {
+    margin: 15px 0;
+}
+
+.test-weight-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.test-weight-range {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Difficulty selector styling */
+.difficulty-container {
+    margin: 15px 0;
+}
+
+.difficulty-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.difficulty-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.difficulty-option {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    transition: all 0.2s;
+}
+
+.difficulty-option:hover {
+    background-color: #e8e8e8;
+}
+
+.difficulty-option.selected {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #388E3C;
+}
+
+/* Toggle switch styling */
+.auto-recalculate-toggle {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 4px; /* Ensure this is here for rounded edges */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* These may be redundant if already defined above, but included for completeness */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Test IO container styling */
+.test-io-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.test-input-container, 
+.test-output-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Fixed horizontal scrolling for text fields */
+.form-control.auto-resize {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: auto;   /* Show horizontal scrollbar when needed */
+    white-space: pre;   /* Preserve whitespace and prevent wrapping */
+    width: 100%;
+}
+
+.test-input, 
+.test-output,
+.test-explanation {
+    white-space: pre;
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+/* Status indicators */
+.testing-status,
+.generation-status,
+.compilation-status {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.testing {
+    animation: blink 1.5s infinite;
+    color: #666;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.testing-success {
+    color: #4CAF50; 
+    background-color: transparent;  
+    display: inline-block;
+}
+
+.testing-error {
+    color: #f44336;
+    background-color: transparent;
+    display: inline-block;
+}
+
+/* Animation for loading status */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Test header styling */
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.test-header h3 {
+    margin: 0;
+}
+
+/* Explanation styling */
+.test-explanation-container {
+    margin-top: 15px;
+}
+
+.test-explanation-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Fix generation status styling */
+.generation-status {
+    display: inline-block;
+}
+
+.ongoing {
+    animation: blink 1.5s infinite;
+    color: #666;
+    background-color: transparent;
+}
+
+.generation-success {
+    color: #4CAF50; 
+    background-color: transparent; 
+}
+
+.generation-error {
+    color: #f44336;
+    background-color: transparent;
+}
+
+/* Add this to the existing CSS file */
+.difficulty-indicator {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 10px;
+    padding: 0px 3px;
+    border-radius: 3px;
+    color: white;
+    background-color: #7b7b7b;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.difficulty-1 { background-color: #81c784; } /* Easy - green */
+.difficulty-2 { background-color: #90caf9; } /* Medium-Easy - light blue */
+.difficulty-3 { background-color: #ffb74d; } /* Medium - orange */
+.difficulty-4 { background-color: #ff8a65; } /* Medium-Hard - light red */
+.difficulty-5 { background-color: #e57373; } /* Hard - red */
